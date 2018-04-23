@@ -1,37 +1,20 @@
 const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./config/key');
+const mongoose = require('mongoose');
+const Keys = require('./config/key')
+require('./services/passport');
+// const authRoutes = require('./routes/authRoutes');
+require('./models/User')
 
+// This connects to the DB on mLab
+mongoose.connect(Keys.mongoURI);
+
+// This app object is set up to listen for incoming request
 const app = express();
-  // This app object is set up to listen for incoming request
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: keys.googleClientID,
-      clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback'
-    },
-  (accessToken, refreshToken, profile, done) => {
-    console.log('accessToken', accessToken);
-    console.log('refreshToken', refreshToken);
-    console.log('profile', profile);
-   }
-  )
-);
+// Connects the routes to the app
+// authRoutes(app);
+require('./routes/authRoutes')(app)
 
-app.get(
-  '/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email', 'image']
-  })
-);
-
-app.get(
-  '/auth/google/callback',
-  passport.authenticate('google'));
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT);

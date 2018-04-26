@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
+
 import NavBar from './navbar';
 import Landing from './Landing';
 import Profile from './Profile';
@@ -8,8 +11,11 @@ import CreateEvent from './EventCreate';
 
 
 
+class App extends Component {
+  componentDidMount(){
+    this.props.getUser();
+  }
 
-export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -26,3 +32,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect(null, actions)(App);

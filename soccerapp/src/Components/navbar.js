@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 
 
-
 export default class NavBar extends Component {
   constructor(props) {
           super(props);
@@ -15,19 +14,16 @@ export default class NavBar extends Component {
       this.onClick = this.onClick.bind(this);
       this.toggle = this.toggle.bind(this);
       }
-
       onClick(){
           this.setState({
               collapse: !this.state.collapse,
           });
       }
-
       toggle() {
           this.setState({
               dropdownOpen: !this.state.dropdownOpen
           });
       }
-
   render() {
     return (
       <Router>

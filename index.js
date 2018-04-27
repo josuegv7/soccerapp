@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const Keys = require('./config/key');
 
 require('./models/User');
@@ -15,6 +16,8 @@ mongoose.connect(Keys.mongoURI);
 // This app object is set up to listen for incoming request
 const app = express();
 //
+
+app.use(bodyParser.json());
 
 // Create a Cookie and Session for Logged in User
 app.use(

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const requireLogin = require('../middleware/requireLogin');
+const Mailer = require('../services/Mailer');
+const emailTemplate = require('../services/emailTemplates/gameEmailTemplate');
+
 
 const Game = mongoose.model('games')
 
@@ -18,5 +21,9 @@ module.exports = app => {
         _user: req.user.id,
         dateSent: Date.now()
       });
+
+      // Here we send a new email:
+      const mailer = new Mailer(game, emailTemplate(game));
+      mailer.send()
     });
 };

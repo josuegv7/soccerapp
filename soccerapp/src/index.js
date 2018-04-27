@@ -9,6 +9,9 @@ import 'mdbreact/dist/css/mdb.css';
 import App from './Components/App';
 import reducers from './reducers';
 
+import axios from 'axios';
+window.axios = axios;
+
 const Store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(

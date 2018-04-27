@@ -3,15 +3,22 @@ import ProfileCard from './profilecard';
 import ProfileInfo from './profileinfo';
 
 
+
 export default class  Profile extends Component {
   render() {
+    const profile = {
+      margin: '1.5rem auto'
+    }
+    const profileinfo ={
+      margin: '0 0 0 2.5rem'
+    }
     return (
-      <div class="container fluid">
-        <div class='row'>
-          <div class='col-12 col-sm-6 col-lg-8'>
+      <div className="container fluid" style={profile}>
+        <div className='row'>
+          <div>
             <ProfileCard/>
           </div>
-          <div class="col-6 col-lg-4">
+          <div style={profileinfo}>
             <ProfileInfo/>
           </div>
         </div>

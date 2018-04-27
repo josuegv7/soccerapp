@@ -4,7 +4,7 @@ export default class ProfileInfo extends Component {
   render() {
     return (
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <ul class="nav  md-pills pills-primary flex-column " role="tablist">
                     <li class="nav-item">
                         <i class="fa fa-trophy fa-3x amber-text d-inline" aria-hidden="true"></i>

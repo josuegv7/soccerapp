@@ -8,8 +8,12 @@ const Game = mongoose.model('games')
 
 
 module.exports = app => {
+  app.get('/soccerapp/game/thanks',
+(req, res) => {
+  res.send("Thanks!! See you Then");
+})
   app.post(
-    '/soccerapp/game', requireLogin, (req, res) => {
+    '/soccerapp/game', requireLogin, async (req, res) => {
       const { title, subject, body, date, recipients } = req.body;
 
       const game = new Game({
@@ -24,6 +28,11 @@ module.exports = app => {
 
       // Here we send a new email:
       const mailer = new Mailer(game, emailTemplate(game));
-      mailer.send()
+      try {
+      await mailer.send();
+      await game.save();
+    } catch (err) {
+      res.status(422).send(err);
+    }
     });
 };

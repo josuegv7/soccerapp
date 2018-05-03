@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, Mask, Container, Button } from 'mdbreact';
+import { View, Mask, Button } from 'mdbreact';
 import pic1 from '../assets/pic1.jpg';
 import pic2 from '../assets/pic2.jpg';
 

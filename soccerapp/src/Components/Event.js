@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import EventCreate from "./EventCreate";
 
 export default class Event extends Component {
   render() {

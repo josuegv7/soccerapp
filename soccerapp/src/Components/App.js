@@ -7,8 +7,6 @@ import NavBar from './navbar';
 import Landing from './Landing';
 import Profile from './Profile';
 import Game from './Event';
-import CreateEvent from './EventCreate';
-import EventReview from './EventReview';
 import EventCheck from './EventCheck';
 
 

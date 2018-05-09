@@ -1,10 +1,36 @@
+import _ from "lodash";
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-// import _ from "lodash";
+
 import validateEmails from "../utils/validateEmail";
+import EventField from './EventField';
+import formFields from './formFields';
+
 
 class CreateEvent extends Component {
+  renderFields() {
+    return _.map(formFields, field => {
+      return(
+        < Field key = {
+          field.name
+        }
+        component = {
+          EventField
+        }
+        type = {
+          field.type
+        }
+        label = {
+          field.label
+        }
+        name = {
+          field.name
+        }
+        />
+        )
+    });
+  }
   render() {
     return (
       <div className="container-fluid">
@@ -21,53 +47,9 @@ class CreateEvent extends Component {
                 </div>
                 {/*Body*/}
                 <div className="modal-body">
-                  <form
-                    onSubmit={(this.props.onEventSubmit)}
-                  >
-                    {/* DATE */}
-                    <label>Date</label>
-                    <Field
-                      type="date"
-                      name="gamedate"
-                      component="input"
-                      className="form-control form-control-sm"
-                    />
+                  <form onSubmit={this.props.handleSubmit(this.props.onEventSubmit)} >
+                   {this.renderFields()}
                     <br />
-                    {/* TIME */}
-                    <label>Time</label>
-                    <Field
-                      type="time"
-                      name="gametime"
-                      component="input"
-                      className="form-control form-control-sm"
-                    />
-                    <br />
-                    {/* ADDRESS */}
-                    <label>Location:</label>
-                    <Field
-                      type="text"
-                      name="address"
-                      component="input"
-                      className="form-control form-control-sm"
-                    />
-                    <br />
-                    {/* SEND TO */}
-                    <label>To:</label>
-                    <Field
-                      type="text"
-                      name="recipients"
-                      component="input"
-                      className="form-control form-control-sm"
-                    />
-                    <br />
-                    {/* MESSAGE */}
-                    <label>Your message</label>
-                    <Field
-                      type="textarea"
-                      name="message"
-                      component="input"
-                      className="form-control form-control-sm"
-                    />
                     {/* BUTTONS */}
                     <div className="text-center mt-4 mb-2">
                       <Link to="/profile" className="btn btn-danger">
@@ -90,21 +72,21 @@ class CreateEvent extends Component {
   }
 }
 
-// function validate(values){
-//   const errors = {};
-//  erros.recipients = validateEmails(values.recipients || '');
-//
-//   _.each(FIELDS, ({name}) => {
-//     if (!values[name]){
-//       errors[name] ='You must provide a value';
-//     }
-//   });
-//
-//   return errors;
-// }
+function validate(values) {
+  const errors = {};
+  errors.recipients = validateEmails(values.recipients || '');
+  _.each(formFields, ({
+    name
+  }) => {
+    if (!values[name]) {
+      errors[name] = 'You must provide a value';
+    }
+  });
+  return errors;
+}
 
 export default reduxForm({
-  // validate: validate,
+  validate: validate,
   form: 'eventForm',
-  destoryOnUnmount: false
+  destroyOnUnmount: false
 })(CreateEvent);

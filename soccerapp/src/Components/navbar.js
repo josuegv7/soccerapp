@@ -12,13 +12,7 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  Fa,
-  Container,
-  Mask,
-  View,
-  MRow,
-  Col
+  DropdownItem
 } from "mdbreact";
 import "./navbar.css";
 

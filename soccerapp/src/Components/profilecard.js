@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, CardBody, CardImage, CardTitle} from 'mdbreact';
+import { Card, CardBody, CardImage } from 'mdbreact';
 import profilepic from '../assets/profile.jpg'
 
 export default class ProfileCard extends Component {
@@ -13,7 +13,7 @@ export default class ProfileCard extends Component {
           <CardBody>
               <h3>Name</h3>
               <h5>Location</h5>
-              <h5><i class="fa fa-users" aria-hidden="true">Friends</i></h5>
+              <h5><i className="fa fa-users" aria-hidden="true">Friends</i></h5>
           </CardBody>
       </Card>
     );

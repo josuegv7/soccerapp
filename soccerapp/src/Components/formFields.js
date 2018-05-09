@@ -1,4 +1,10 @@
-export default [{
+export default [
+    {
+        label: 'Subject',
+        name: 'subject',
+        type: 'text'
+    },
+    {
         label: 'Date',
         name: 'gamedate',
         type: 'date'
@@ -20,7 +26,7 @@ export default [{
     },
     {
         label: 'Message',
-        name: 'message',
+        name: 'body',
         type: 'textarea'
     }
 ];

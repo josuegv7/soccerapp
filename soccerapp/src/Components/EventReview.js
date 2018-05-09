@@ -3,22 +3,27 @@ import _ from "lodash";
 import React from 'react';
 import {connect} from 'react-redux';
 import formFields from './formFields';
+import {withRouter} from 'react-router-dom';
+import * as actions from '../actions/index';
 import {
   Card,
   CardBody,
   CardTitle,
-  CardText
+  CardText,
+  Button
 } from 'mdbreact';
 
 
-const EventFormReview = ({ onCancel, eventFormValues }) => {
+const EventFormReview = ({ onCancel, eventFormValues, submitEvent, history }) => {
   const reviewEventFields = _.map(formFields, 
   ({ name, label })=>{
     return (
 
       < CardBody key = {name} >
-        < CardTitle > { label } < /CardTitle>
-        <CardText > 
+        <CardTitle> 
+          { label } 
+        </CardTitle>
+        <CardText> 
           {
             eventFormValues[name]
           }
@@ -30,22 +35,35 @@ const EventFormReview = ({ onCancel, eventFormValues }) => {
     );
   });
   return (
-    <div>
+    <div className='container'>
       < Card cascade >
         <h5> Review Message Before Submitting </h5>
         { reviewEventFields }
-        <button className = "warning" onClick={onCancel}>
+        < Button 
+          block
+          color = "warning"
+          size = "sm"
+          onClick = {
+            onCancel
+            } 
+        >
             Cancel
-        </button>
+        </Button>
+        < Button
+            onClick = {() => submitEvent(eventFormValues, history)}
+            block
+            color = "info"
+            size = "sm"
+        >
+          Send 
+        </Button>
       < /Card>
     </div>
   );
 };
 
-function mapStateToProps(state){
-  return {  
-    eventFormValues: state.form.eventForm.values  
-  }
+function mapStateToProps(state) {
+  return ({ eventFormValues: state.form.eventForm.values })
 }
 
-export default connect(mapStateToProps)(EventFormReview);
+export default connect(mapStateToProps, actions)(withRouter(EventFormReview))

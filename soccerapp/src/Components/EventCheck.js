@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { reduxForm } from 'redux-form';
 import CreateEvent from './EventCreate';
 import EventReview from './EventReview';
 
@@ -27,5 +28,7 @@ class EventCheck extends Component {
 }
 
 
-export default EventCheck;
+export default reduxForm({
+  form:'eventForm'
+})(EventCheck);
  

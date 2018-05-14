@@ -9,6 +9,6 @@ export const getUser = () =>  async dispatch => {
 
 export const submitEvent = (eventFormValues, history) => async dispatch => {
     const res = await Axios.post('/soccerapp/game', eventFormValues);
-    history.push('/profile')
-    // dispatch ({type: POST_EVENT, payload:res.data})
+    dispatch ({type: POST_EVENT, payload:res.data});
+     history.push('/profile')
 };

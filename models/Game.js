@@ -7,6 +7,7 @@ const gameSchema = new Schema ({
   body: String,
   subject: String,
   date: Date,
+  time: String,
   recipients: [RecipientSchema],
   yes: { type: Number, default:0 },
   no: { type: Number, default:0 },

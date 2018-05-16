@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import { View, Mask, Button } from 'mdbreact';
-import {BrowserRouter as Router,Link} from "react-router-dom";
+import { View, Mask } from 'mdbreact';
 import pic2 from '../assets/pic2.jpg';
 
 export default class Landing extends Component {

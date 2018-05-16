@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import {Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu,DropdownItem} from "mdbreact";
+import { Link } from "react-router-dom";
+import {Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem} from "mdbreact";
 import "./navbar.css";
 
 class NavBar extends Component {

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { View, Mask, Button } from 'mdbreact';
+import {BrowserRouter as Router,Link} from "react-router-dom";
 import pic2 from '../assets/pic2.jpg';
 
 export default class Landing extends Component {
@@ -13,8 +14,7 @@ export default class Landing extends Component {
         <div>
           <View style={view}>
             <Mask overlay="black-strong" style={{flexDirection: 'column'}} className="flex-center  text-white text-center">
-                <h2> The only social network for Futbol </h2>
-                <Button color="warning">Sign In</Button>
+                <h1> A social network for Futbol </h1>
             </Mask>
           </View>
       </div>

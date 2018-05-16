@@ -1,19 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavbarToggler,
-  Collapse,
-  NavItem,
-  NavLink,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "mdbreact";
+import {Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu,DropdownItem} from "mdbreact";
 import "./navbar.css";
 
 class NavBar extends Component {
@@ -45,7 +33,7 @@ class NavBar extends Component {
         return (
           <NavbarNav right>
             <NavItem>
-              <NavLink to="/auth/google">Google Login</NavLink>
+              <li><a href="/auth/google">Google Login</a></li>
             </NavItem>
           </NavbarNav>
         );
@@ -53,25 +41,10 @@ class NavBar extends Component {
         return (
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
-              <NavItem active>
-                <NavLink to="/profile">Profile</NavLink>
-              </NavItem>
-              <NavItem>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                  <DropdownToggle nav caret>
-                    Info
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem href="#">Create an Event</DropdownItem>
-                    <DropdownItem href="#">List of Events</DropdownItem>
-                    <DropdownItem href="#">Friends</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
             </NavbarNav>
             <NavbarNav right>
               <NavItem>
-                <NavLink to="/soccerapp/logout">Log Out</NavLink>
+                <li><a href="/soccerapp/logout"> Log Out</a></li>
               </NavItem>
             </NavbarNav>
           </Collapse>
@@ -82,8 +55,7 @@ class NavBar extends Component {
     return (
       <div>
         <header>
-          <Router>
-            <Navbar color="unique-color" dark expand="md" scrolling>
+            <Navbar color="red" dark expand="md" scrolling>
               <NavbarBrand>
                 <Link to={this.props.auth ? "/profile" : "/"}>
                   <strong>MapleField</strong>
@@ -96,7 +68,6 @@ class NavBar extends Component {
                 <NavbarNav left>{this.renderContent()}</NavbarNav>
               </Collapse>
             </Navbar>
-          </Router>
         </header>
       </div>
     );

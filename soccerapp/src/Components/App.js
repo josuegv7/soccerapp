@@ -8,6 +8,7 @@ import Landing from './Landing';
 import Profile from './Profile';
 import Game from './Event';
 import EventCheck from './EventCheck';
+import Logout from './logout';
 
 
 
@@ -26,8 +27,7 @@ class App extends Component {
             <Route exact path="/game" component={Game} />
             <Route path="/profile" component={Profile} />
             <Route path="/game/check" component={EventCheck} />
-            {/* <Route path="/game/review" component={EventCheck} />             */}
-            {/* <Route path="/game/new" component={CreateEvent} /> */}
+            < Route path = "/soccerapp/logout" component = {Logout}/>
           </div>
         </BrowserRouter>
       </div>

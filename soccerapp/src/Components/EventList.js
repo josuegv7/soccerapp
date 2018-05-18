@@ -13,7 +13,7 @@ class EventList extends Component {
             return (
             <Card cascade>
             <CardBody >
-                <CardTitle> {game.title} </CardTitle>
+                <CardTitle> {game.subject} </CardTitle>
                 <CardText>
                     {game.body}
                     {game.date}

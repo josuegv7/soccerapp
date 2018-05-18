@@ -1,24 +1,23 @@
 const _ = require('lodash');
 const Path = require('path-parser').default;
-const {
-  URL
-} = require('url');
+const {URL} = require('url');
 const mongoose = require('mongoose');
 const requireLogin = require('../middleware/requireLogin');
 const Mailer = require('../services/Mailer');
 const emailTemplate = require('../services/emailTemplates/gameEmailTemplate');
+const bodyParser = require('body-parser');
+const keys = require('../config/key');
+const client = require('twilio')(keys.accountSid, keys.authToken);
 
 
 const Game = mongoose.model('games')
-
 
 module.exports = app => {
 
   app.get('/soccerapp/games', requireLogin, async (req, res) => {
     const games = await Game.find({
       _user: req.user.id
-    });
-  
+    });  
     res.send(games);
   });
 
@@ -79,20 +78,20 @@ module.exports = app => {
 
   app.post('/soccerapp/game', requireLogin, async (req, res) => {
     const {
-      title,
       subject,
-      body,
-      time,
       date,
-      recipients
+      time,
+      location,
+      recipients,
+      message
     } = req.body;
 
     const game = new Game({
-      title,
       subject,
-      body,
-      time,
       date,
+      time,
+      location,
+      message,
       recipients: recipients.split(',').map(email => ({
         email: email.trim()
       })),
@@ -109,4 +108,22 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
-};
+
+  // SEND SMS
+  app.get('/soccerapp/textsend', (req, res) =>{
+    client.messages
+      .create({
+        body: "TEST TEXT",
+        from: '+12019891209',
+        to: '+12015462273'
+      }, (err, data) => {
+        if (err)
+          console.log(err);
+        console.log(data)
+      })
+      .then(message => console.log(message.sid))
+      .done();
+  });
+
+
+}

@@ -6,7 +6,6 @@ import * as actions from '../actions/index';
 import NavBar from './navbar';
 import Landing from './Landing';
 import Profile from './Profile';
-import Game from './Event';
 import EventCheck from './EventCheck';
 
 
@@ -23,7 +22,6 @@ class App extends Component {
           <div>
             <NavBar/>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/game" component={Game} />
             <Route path="/profile" component={Profile} />
             <Route path="/game/check" component={EventCheck} />
           </div>
@@ -32,5 +30,4 @@ class App extends Component {
     );
   }
 }
-
 export default connect(null, actions)(App);

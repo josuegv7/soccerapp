@@ -22,7 +22,7 @@ export default class  Profile extends Component {
           </div>
           <div style={profileinfo}>
             <ProfileInfo/>
-            < Link to = "/game/check" > < Button > Create a Game < /Button></Link >
+            <Link to = "/game/check"> <Button > Create a Game </Button></Link>
           </div>
            < EventList / >
         </div>

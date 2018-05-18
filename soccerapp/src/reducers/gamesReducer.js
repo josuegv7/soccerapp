@@ -1,6 +1,4 @@
-import {
-    EXPORT_GAMES
-} from '../actions/types';
+import { EXPORT_GAMES } from '../actions/types';
 
 export default function (state = [], action) {
     switch (action.type) {

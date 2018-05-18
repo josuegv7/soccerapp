@@ -13,7 +13,7 @@ export default class Landing extends Component {
         <div>
           <View style={view}>
             <Mask overlay="black-strong" style={{flexDirection: 'column'}} className="flex-center  text-white text-center">
-                <h1> A social network for Futbol </h1>
+                <h1> A social network for Futbol Pickup Games </h1>
             </Mask>
           </View>
       </div>

@@ -6,27 +6,32 @@ export default [
     },
     {
         label: 'Date',
-        name: 'gamedate',
+        name: 'date',
         type: 'date'
     },
     {
         label: 'Time',
-        name: 'gametime',
+        name: 'time',
         type: 'time'
     },
     {
         label: 'Location',
-        name: 'address',
+        name: 'location',
         type: 'text'
     },
     {
-        label: 'To',
+        label: 'Email',
         name: 'recipients',
         type: 'text'
     },
     {
+        label: 'Number',
+        name: 'number',
+        type: 'text'
+    },
+    {
         label: 'Message',
-        name: 'body',
+        name: 'message',
         type: 'textarea'
     }
 ];

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem} from "mdbreact";
-import "./navbar.css";
 
 class NavBar extends Component {
   constructor(props) {

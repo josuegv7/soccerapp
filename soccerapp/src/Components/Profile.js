@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import ProfileCard from './profilecard';
-import ProfileInfo from './profileinfo';
 import EventList from './EventList';
 import { Button } from 'mdbreact';
 import { Link } from 'react-router-dom';
@@ -21,7 +20,6 @@ export default class  Profile extends Component {
             <ProfileCard/>
           </div>
           <div style={profileinfo}>
-            <ProfileInfo/>
             <Link to = "/game/check"> <Button > Create a Game </Button></Link>
           </div>
            < EventList / >

@@ -11,12 +11,13 @@ class EventList extends Component {
     eventGames(){
         return this.props.games.reverse().map(game => {
             return (
-            <Card cascade>
+            <Card cascade key={game._id}>
             <CardBody >
                 <CardTitle> {game.subject} </CardTitle>
                 <CardText>
-                    {game.body}
-                    {game.date}
+                    {game.body}<br/>
+                    {game.date}<br/>
+                    {game.time}
                 </CardText> 
                     <div className="row">
                         <div className="col-6"> Yes: {game.yes} </div> 
@@ -29,10 +30,10 @@ class EventList extends Component {
     }
     render() {
         return(
-             
             <div>
-                < h3 > < i className = "fa fa-calendar fa-2x d-inline"
-                aria-hidden = "true"></i>GAMES CREATED</h3 >
+                <h3> <i className = "fa fa-calendar fa-2x d-inline" aria-hidden = "true"></i>
+                    GAMES CREATED
+                </h3 >
                 {this.eventGames()}
             </div>
         )
@@ -44,6 +45,5 @@ function mapStateToProps({games}) {
     return {games}
 }
 
-export default connect(mapStateToProps, {
-    exportGames
-})(EventList)
+export default connect(mapStateToProps, 
+    {exportGames})(EventList)

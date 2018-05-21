@@ -12,23 +12,13 @@ class CreateEvent extends Component {
   renderFields() {
     return _.map(formFields, field => {
       return(
-        < Field key = {
-          field.name
-        }
-        component = {
-          EventField
-        }
-        type = {
-          field.type
-        }
-        label = {
-          field.label
-        }
-        name = {
-          field.name
-        }
+        <Field key = {field.name} 
+        component = {EventField} 
+        type = {field.type} 
+        label = {field.label}
+        name = {field.name}
         />
-        )
+      )
     });
   }
   render() {

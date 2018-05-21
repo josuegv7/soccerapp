@@ -12,7 +12,7 @@ const EventFormReview = ({ onCancel, eventFormValues, submitEvent, history }) =>
   const reviewEventFields = _.map(formFields, 
   ({ name, label })=>{
     return (
-      < CardBody key = {name} >
+      <CardBody key = {name}>
         <CardTitle> 
           { label } 
         </CardTitle>

@@ -8,7 +8,13 @@ import * as actions from '../actions/index';
 import { Card, CardBody, CardTitle, CardText, Button } from 'mdbreact';
 
 
-const EventFormReview = ({ onCancel, eventFormValues, submitEvent, history }) => {
+const EventFormReview = ({
+    onCancel,
+    eventFormValues,
+    submitEvent,
+    sendText,
+    history
+  }) => {
   const reviewEventFields = _.map(formFields, 
   ({ name, label })=>{
     return (
@@ -30,7 +36,11 @@ const EventFormReview = ({ onCancel, eventFormValues, submitEvent, history }) =>
         <Button block color = "warning" size = "sm" onClick = {onCancel}>
           Cancel
         </Button>
-        <Button block color = "info" size = "sm" onClick = {() => submitEvent(eventFormValues, history)}>
+        <Button block color = "info" size = "sm" onClick = {() => {
+                                                              submitEvent(eventFormValues, history);
+                                                              sendText.bind(this);
+                                                              }
+                                                              } >
           Send 
         </Button>
       < /Card>

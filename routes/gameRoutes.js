@@ -115,7 +115,7 @@ module.exports = app => {
       .create({
         body: "TEST TEXT",
         from: '+12019891209',
-        to: '+12015462273'
+        to: req.body.data
       }, (err, data) => {
         if (err)
           console.log(err);
